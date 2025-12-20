@@ -1,3 +1,7 @@
+/**
+ * @author Danh, To Huu
+ */
+
 package com.danh.common.enums;
 
 public enum ActionType {

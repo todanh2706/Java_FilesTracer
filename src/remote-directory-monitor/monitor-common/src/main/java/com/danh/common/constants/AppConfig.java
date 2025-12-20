@@ -1,3 +1,7 @@
+/**
+ * @author Danh, To Huu
+ */
+
 package com.danh.common.constants;
 
 public class AppConfig {
