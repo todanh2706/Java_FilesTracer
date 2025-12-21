@@ -44,7 +44,6 @@ public class DirectoryWatcher implements Runnable {
             folder.register(watchService, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
 
             isRunning = true; // Đặt cờ
-            callback.onMonitorStarted(path); // Gọi callback đặt Monitor vào path
 
             // Lắng nghe
             while (isRunning) {

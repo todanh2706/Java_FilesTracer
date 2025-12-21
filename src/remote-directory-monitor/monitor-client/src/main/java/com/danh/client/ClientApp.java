@@ -15,6 +15,14 @@ import java.util.Scanner;
 
 public class ClientApp {
     public static void main(String[] args) {
+        // Khởi tạo SocketClient và kết nối
+        System.out.println("Enter your client name (e.g., PC-1):");
+        String name = new Scanner(System.in).nextLine();
+
+        // Mảng này giúp phần tử SocketClient có thể được truy cập bên trong Callback
+        final SocketClient[] clientRef = new SocketClient[1];
+
+
         // Tạo Callback để xử lý sự kiện từ Socket và Watcher trả về
         IClientCallback callback = new IClientCallback() {
             @Override
@@ -37,17 +45,17 @@ public class ClientApp {
                 // Khi file thay đổi, in ra màn hình và gửi ngược lại Server
                 System.out.println("[FILE CHANGED]: " + event.toString());
 
-                // TODO: Gọi socket để gửi event này về Server
-                // client.sendFileEvent(event);
+                if (clientRef[0] != null) {
+                    clientRef[0].sendFileEvent(event);
+                    System.out.println("[SENT]: Report sent to server.");
+                }
             }
         };
 
-        // Khởi tạo SocketClient và kết nối
-        System.out.println("Enter your client name (e.g., PC-1):");
-        String name = new Scanner(System.in).nextLine();
 
-        SocketClient client = new SocketClient(callback);
-        client.connect(name);
+
+        clientRef[0] = new SocketClient(callback);
+        clientRef[0].connect(name);
 
         // Giữ chương trình chạy
         while (true) {
