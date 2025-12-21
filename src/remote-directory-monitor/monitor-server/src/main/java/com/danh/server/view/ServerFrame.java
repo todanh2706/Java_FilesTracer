@@ -1,3 +1,8 @@
+/**
+ * Giao diện chính của Server
+ * @author Danh, To Huu
+ */
+
 package com.danh.server.view;
 
 import com.danh.common.model.Message;
