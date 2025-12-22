@@ -1,4 +1,5 @@
 /**
+ * Đối tượng tin nhắn
  * @author Danh, To Huu
  */
 

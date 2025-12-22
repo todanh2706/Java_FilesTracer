@@ -1,4 +1,5 @@
 /**
+ * Các loại cCtion
  * @author Danh, To Huu
  */
 
